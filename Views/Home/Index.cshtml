@@ -1,0 +1,143 @@
+﻿@model fliper.ViewModels.ProfileViewModel
+
+@{
+    ViewBag.Title = "Home Page";
+}
+
+
+
+
+
+
+<div class="row">
+    @if (Model.IsYourProfile == false)
+    {
+
+
+        <a href="@Url.Action("Wiadomosci", "Home",new { userid = Model.NickName} )"><img src="~/Content/Images/msg.png" alt="" class="msg" alt="wys" /></a>
+
+
+        if (Model.IsAlreadyLiked == false)
+        {
+
+
+            <div class="profil" id="fajnyProfil"></div>
+        }
+    }
+
+</div>
+<div class="row">
+    <h1 class="nick" id="nick">@Model.NickName</h1>
+
+</div>
+
+<div class="row">
+    <div class="infouser">@Model.City, @Model.Age lat</div>
+</div>
+
+@if (Model.Zdjecia.Count() == 0)
+{
+    <div class="msgph">Ten profil nie ma zdjęć :)</div>
+}
+else
+{
+    <div class="row">
+
+        @foreach (var photo in Model.Zdjecia)
+        {
+
+            <img src="~/Content/photos/@photo.nazwazdjecia" alt="" class="img-thumbnail photos col-sm-2 col-xs-6" id="smallphoto" number="@photo.id">
+
+        }
+
+    </div>
+
+    <div class="row">
+
+        <div class="galery">
+            <img src="~/Content/photos/@Model.Zdjecia.FirstOrDefault().nazwazdjecia" alt="Snow" number="@Model.Zdjecia.FirstOrDefault().id" id="headerphoto">
+            <div class="prev" id="prev"></div>
+            <div class="next" id="next"></div>
+        </div>
+
+
+    </div>
+
+                    <hr />
+
+}
+
+@if (Model.profileInfo != null)
+{
+
+<div class="row">
+    <div id="infouser">
+        @if (!String.IsNullOrWhiteSpace(Model.profileInfo.colubie))
+        {
+             <p><h1>Co lubię:</h1> @Model.profileInfo.colubie</p>
+
+        } 
+
+        @if (!String.IsNullOrWhiteSpace(Model.profileInfo.opis))
+        {
+            <p><h1>Opis mnie:</h1>@Model.profileInfo.opis</p>
+        }
+
+        @if (!String.IsNullOrWhiteSpace(Model.profileInfo.pseudomin))
+        {
+            <p><h1>Pseudonim:</h1>@Model.profileInfo.pseudomin</p>
+        }
+
+
+        @if (!String.IsNullOrWhiteSpace(Model.profileInfo.phonenumber))
+        {
+            <p><h1>Nr Telefonu:</h1>@Model.profileInfo.phonenumber</p>
+        }
+
+        @if (Model.profileInfo.waga != null)
+        {
+            <p><h1>Waga:</h1>@Model.profileInfo.waga kg</p>
+        }
+
+        @if (Model.profileInfo.wzrost != null)
+        {
+            <p><h1>Waga:</h1>@Model.profileInfo.wzrost cm</p>
+        }
+
+        @if (!String.IsNullOrWhiteSpace(Model.profileInfo.favcolor))
+        {
+            <p><h1>Ulubiony kolor:</h1>@Model.profileInfo.favcolor</p>
+        }
+
+        @if (!String.IsNullOrWhiteSpace(Model.profileInfo.samochod))
+        {
+            <p><h1>Samochód:</h1>@Model.profileInfo.samochod</p>
+        }
+
+
+    </div>
+
+</div>
+}
+
+<div class="row">
+    <h2 class="interests">Zainteresowania +</h2>
+
+
+    <div class="horizontal">
+
+
+        @foreach (var item in Model.zainteresowania)
+        {
+            <div class="horizontal col-sm-2 col-xs-6">
+                <a href="@Url.Action("Zainteresowanie","Home", new { id = item.id})"><img src="~/Content/Intresting/@item.zdjecie" alt="" class="img-thumbnail photos"></a>
+                <b>@item.nazwa</b>
+            </div>
+
+        }
+        @*col-sm-2 col-xs-3*@
+
+        
+    </div>
+</div>
+<script type="text/javascript" src="~/Scripts/ts/profile.js"></script>

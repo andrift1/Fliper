@@ -1,0 +1,14 @@
+{
+  "requires": true,
+  "lockfileVersion": 1,
+  "dependencies": {
+    "@types/jquery": "^3.3.29",
+    "@types/signalr": "^2.2.35",
+    "@types/sizzle": {
+      "integrity": "sha512-7EJYyKTL7tFR8+gDbB6Wwz/arpGa0Mywk1TJbNzKzHtzbwVmY4HR9WqS5VV7dsBUKQmPNr192jHr/VpBluj/hg==",
+      "resolved": "https://registry.npmjs.org/@types/sizzle/-/sizzle-2.3.2.tgz",
+      "version": "2.3.2"
+    },
+    "jquery": "^3.3.1"
+  }
+}

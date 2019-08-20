@@ -1,0 +1,53 @@
+﻿@model fliper.ViewModels.IntrestingViewModel
+
+<div class="row">
+
+    <a href="@Url.Action("DodajZainteresowanie", "Home")"><b>Stwórz nowe zainteresowanie</b></a>
+    <div id="search">
+
+
+
+
+        @using (@Html.BeginForm("Zainteresowania", "Home", FormMethod.Post, new { @class = "form-inline" }))
+        {
+
+
+
+
+            <div class="form-group mx-sm-2 mb-1">
+
+
+                @Html.TextBoxFor(a => a.Nazwa, new { @class = "form-control", placeholder = "Szukaj Zainteresowania" })
+
+            </div>
+            <button type="submit" class="btn btn-primary">Szukaj</button>
+
+
+        }
+
+
+    </div>
+</div>
+
+
+
+
+
+
+
+<div class="row">
+
+    <div class="horizontal pole">
+
+
+        @foreach (var item in Model.zainteresowania)
+        {
+            <div class="horizontal col-sm-2 col-xs-6">
+                <a href="@Url.Action("Zainteresowanie","Home", new { id = item.id})"><img src="~/Content/Intresting/@item.zdjecie" alt="" class="img-thumbnail photos"></a>
+                <b> @item.nazwa</b>
+            </div>
+        }
+
+
+    </div>
+</div>

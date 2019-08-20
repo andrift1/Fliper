@@ -1,0 +1,31 @@
+﻿@model IEnumerable<fliper.Models.polubieniaLinq>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Od Kogo (fajny profil)</th>
+            <th scope="col">:)</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <th scope="row"></th>
+                <td>@if (item.IsShowed == true)
+                {
+                    @item.Osoba
+                }
+                else
+                {
+                    <div class="wholiked">@item.Osoba (<b>Nowy</b>)</div>
+
+                }</td>
+                <td><a href="@Url.Action("Index", "Home", new { Name = item.Osoba})">Zobacz Profil</a></td>
+            </tr>
+        }
+      
+   
+    </tbody>
+</table> 

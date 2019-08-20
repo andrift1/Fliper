@@ -1,0 +1,45 @@
+﻿@model fliper.Models.zainteresowania
+
+
+@using (Html.BeginForm("DodajZainteresowanie", "Home",
+                                                                                    FormMethod.Post,
+                                                                                    new { enctype = "multipart/form-data" }))
+{
+
+    @Html.AntiForgeryToken()
+    <div class="centeruploud form-inline">
+        <h2>Dodaj Zainteresowanie</h2>
+       
+
+
+
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.nazwa, new { @class = "col-md-2 control-label" })
+            <div class="col-md-7">
+                @Html.TextBoxFor(m => m.nazwa, new { @class = "form-control", placeholder="" })
+                @Html.ValidationMessageFor(m => m.nazwa, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+
+
+
+    
+        
+        <div class="form-group">
+            <div class="col-md-2 control-label"><label>Wybierz zdjecie</label></div>
+            <input type="file" name="file" id="file" class="col-sm-12 col-xs-12" /><br><br>
+        </div>
+        
+
+        
+            <input type="submit" value="Dodaj" class="btn-success wyslijbtn" />
+            <br><br>
+            @ViewBag.Message
+
+
+        </div>
+
+}

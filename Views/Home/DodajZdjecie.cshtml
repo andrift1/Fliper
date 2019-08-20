@@ -1,0 +1,27 @@
+﻿
+@{
+
+}
+
+
+
+
+
+
+    @using (Html.BeginForm("DodajZdjecie", "Home",
+                                                            FormMethod.Post,
+                                                            new { enctype = "multipart/form-data" }))
+    {
+        <div class="centeruploud">
+            <h2>Wrzuć swoje zdjęcie</h2>
+
+            <labsel for="file">Przeciagnij zdjęcie:</labsel>
+            <input type="file" name="file" id="file" class="filedrag  col-sm-12 col-xs-12" /><br><br>
+            <input type="submit" value="Wyśłij :)" class="btn-danger wyslijbtn" />
+            <br><br>
+            @ViewBag.Message
+            
+
+        </div>
+
+    }

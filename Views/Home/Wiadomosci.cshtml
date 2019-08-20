@@ -1,0 +1,61 @@
+﻿@model IEnumerable<fliper.Models.Wiadomosci>
+
+<div class="row no-gutters">
+    
+    @*<idchat val="@ViewBag.guiduser" id="idchat"></idchat>
+
+    <idchat val="@ViewBag.GuidToSend" id="idchattosend"></idchat>
+    
+    <idchat val="@ViewBag.Yourguid" id="idchattosendyour"></idchat>*@
+
+    <idchat val="@ViewBag.YourID" id="YourID"></idchat>
+    <idchat val="@ViewBag.IdOtherUser" id="IdOtherUser"></idchat>
+
+
+    <div class="col-6 col-md-3">
+         <div id="contants">
+             
+              @*<div class="onecontact"><p><span>Napisal do ciebie:</span><h1>Hubert</h1><span></span><span>How are ywhats is up...</span></p></div>*@
+
+         </div>
+    </div>
+
+
+
+    <div class="col-12 col-sm-12 col-md-9">
+        <div id="msg">
+            @foreach (var item in Model)
+            {
+                <p>@item.tresc</p>
+            }
+         </div>
+    </div>
+  
+    <div id="sendmsg">
+        <div class="input-group">
+            <input type="text" class="form-control" style="float:right;" id="textclient" >
+            <span class="input-group-btn">
+                <button class="btn btn-default" type="button" id="btnSend">Wyślij</button>
+            </span>
+        </div>
+
+
+        
+    </div>
+
+ 
+</div>
+
+@section scripts{
+    <script>
+  
+
+
+
+
+
+
+    </script>
+   <script type="text/javascript" src="~/Scripts/ts/msg.js"></script>
+
+    }

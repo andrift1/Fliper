@@ -1,0 +1,35 @@
+﻿@model fliper.Models.zainteresowania
+
+<div class="row">
+
+    <div id="inter">@Model.nazwa </div>
+
+</div>
+
+<div class="row">
+    <img src="~/Content/Intresting/@Model.zdjecie" alt="Alternate Text" class="img-circle photoint" />
+</div>
+<div class="row">
+
+    <div id="inter">
+        <h1>Ilość ludzi w zainteresowaniu: (<b>@Model.ileOsob</b>)</h1>
+        @if (ViewBag.IsAlreadyIn == true)
+        {
+            <input type="submit" value="Dołączyłes już" class="alert-danger" disabled />
+        }
+        else
+        {
+            
+            using (@Html.BeginForm("Zainteresowanie", "Home", FormMethod.Post, new { @class = "form-inline" }))
+            {
+                @Html.AntiForgeryToken()
+                <input type="submit" value="Dołącz" class="alert-info" />
+                @Html.HiddenFor(a => a.id)
+
+
+            }
+        }
+
+    </div>
+
+</div>
