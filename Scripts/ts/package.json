@@ -9,6 +9,6 @@
       "resolved": "https://registry.npmjs.org/@types/sizzle/-/sizzle-2.3.2.tgz",
       "version": "2.3.2"
     },
-    "jquery": "^3.3.1"
+    "jquery": "^3.5.0"
   }
 }
